@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cutie</title>
+    <link rel="stylesheet" href="moon.css" />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      #round-box {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+      }
+
+      #round-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      select {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="round-box">
+      <img id="displayImage" src="placeholder.jpg" alt="Image" />
+    </div>
+
+    <select id="qualitySelect">
+      <option value="144">144px</option>
+      <option value="360">360px</option>
+      <option value="480">480px</option>
+      <option value="720">720px</option>
+      <option value="1080">1080px</option>
+    </select>
+
+    <script>
+      const qualitySelect = document.getElementById("qualitySelect");
+      const displayImage = document.getElementById("displayImage");
+
+      // Replace with your image URL logic. I am using a placeholder
+      //Default placeholder image.
+      displayImage.src = "144px.jpg";
+      qualitySelect.addEventListener("change", function () {
+        const selectedQuality = this.value;
+        if (selectedQuality === "144") {
+          displayImage.src = "144px.jpg";
+        } else if (selectedQuality === "360") {
+          displayImage.src = "360px.jpg";
+        } else if (selectedQuality === "480") {
+          displayImage.src = "480px.png";
+        } else if (selectedQuality === "720") {
+          displayImage.src = "720px.jpg";
+        } else if (selectedQuality === "1080") {
+          let roundb = document.getElementById("round-box");
+          roundb.classList.add("wrapper");
+          displayImage.src = "1080px.png";
+
+          const audioElement = document.createElement("audio");
+
+          audioElement.src = "sugar_crash.mp3"; // Set the audio source
+          audioElement.autoplay = true; // To start playing automatically
+          audioElement.loop = true; // To loop the audio
+
+          // Append the <audio> element to an existing element in the DOM
+          const container = document.getElementById("round-box"); // Or any other element
+          if (container) {
+            container.appendChild(audioElement);
+          } else {
+            console.error("Container element not found!");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

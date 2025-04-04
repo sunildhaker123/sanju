@@ -1,0 +1,12 @@
+body {
+  /* background-image: url("\pexels-fidan-nazim-qizi-134456769-14434445.jpg"); */
+  background: url("night.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: white;
+}
+.wrapper {
+  box-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff,
+    0 0 200px #0072ff;
+}
